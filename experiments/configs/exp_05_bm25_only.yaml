@@ -1,0 +1,8 @@
+experiment_name: exp_05_bm25_only
+description: "BM25 only retrieval vs hybrid"
+chunk_size: 500
+retrieval_method: bm25
+reranking: true
+top_k: 5
+model_key: llama-3.1-8b
+prompt_version: "1.0"

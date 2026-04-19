@@ -1,0 +1,8 @@
+experiment_name: exp_10_prompt_v1_2
+description: "Prompt v1.2 citations vs v1.0 strict"
+chunk_size: 500
+retrieval_method: hybrid
+reranking: true
+top_k: 5
+model_key: llama-3.1-8b
+prompt_version: "1.2"

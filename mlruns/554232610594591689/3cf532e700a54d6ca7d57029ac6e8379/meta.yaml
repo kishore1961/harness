@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/554232610594591689/3cf532e700a54d6ca7d57029ac6e8379/artifacts
+end_time: 1776590436935
+entry_point_name: ''
+experiment_id: '554232610594591689'
+lifecycle_stage: active
+run_id: 3cf532e700a54d6ca7d57029ac6e8379
+run_name: exp_01_baseline
+run_uuid: 3cf532e700a54d6ca7d57029ac6e8379
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1776590436901
+status: 3
+tags: []
+user_id: kishore

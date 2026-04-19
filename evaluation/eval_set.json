@@ -1,0 +1,37 @@
+[
+  {
+    "id": "q001",
+    "question": "What is the fiscal deficit target for 2026-27 as a percentage of GDP?",
+    "expected_answer": "4.3 percent of GDP",
+    "category": "fiscal_policy",
+    "page_hint": 23
+  },
+  {
+    "id": "q002",
+    "question": "What is the fiscal deficit estimate for 2025-26 as a percentage of GDP?",
+    "expected_answer": "4.4 percent of GDP",
+    "category": "fiscal_policy",
+    "page_hint": 23
+  },
+  {
+    "id": "q003",
+    "question": "What is the proposed MAT rate after the reduction mentioned in the budget?",
+    "expected_answer": "14 percent",
+    "category": "taxation",
+    "page_hint": 30
+  },
+  {
+    "id": "q004",
+    "question": "What is the proposed TCS rate on overseas tour program packages?",
+    "expected_answer": "2 percent",
+    "category": "taxation",
+    "page_hint": 30
+  },
+  {
+    "id": "q005",
+    "question": "What is the revised non-debt receipts estimate for 2025-26?",
+    "expected_answer": "34 lakh crore rupees",
+    "category": "fiscal_policy",
+    "page_hint": 23
+  }
+]

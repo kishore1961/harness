@@ -1,0 +1,8 @@
+experiment_name: exp_07_llama_70b
+description: "Llama 3.3 70B vs 8B on best config"
+chunk_size: 500
+retrieval_method: hybrid
+reranking: true
+top_k: 5
+model_key: llama-3.3-70b
+prompt_version: "1.0"

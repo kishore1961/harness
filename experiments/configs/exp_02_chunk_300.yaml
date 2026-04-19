@@ -1,0 +1,8 @@
+experiment_name: exp_02_chunk_300
+description: "Chunk size 300 vs baseline 500"
+chunk_size: 300
+retrieval_method: hybrid
+reranking: true
+top_k: 5
+model_key: llama-3.1-8b
+prompt_version: "1.0"

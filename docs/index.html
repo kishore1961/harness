@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Benchmark Harness — Findings</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+               max-width: 900px; margin: 0 auto; padding: 40px 20px;
+               color: #1a1a1a; line-height: 1.6; }
+        h1 { color: #1a1a1a; border-bottom: 3px solid #0066cc; padding-bottom: 12px; }
+        h2 { color: #0066cc; margin-top: 40px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        th { background: #0066cc; color: white; padding: 10px 12px; text-align: left; }
+        td { padding: 8px 12px; border-bottom: 1px solid #e0e0e0; }
+        tr:hover { background: #f5f8ff; }
+        .highlight { background: #e8f4e8 !important; font-weight: bold; }
+        .metric-card { background: #f5f8ff; border-left: 4px solid #0066cc;
+                       padding: 16px; margin: 12px 0; border-radius: 4px; }
+        .finding { background: #fff8e1; border-left: 4px solid #ff9800;
+                   padding: 16px; margin: 12px 0; border-radius: 4px; }
+        code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px;
+               font-family: monospace; }
+        .badge { display: inline-block; padding: 3px 8px; border-radius: 12px;
+                 font-size: 12px; font-weight: bold; }
+        .badge-green { background: #e8f5e9; color: #2e7d32; }
+        .badge-blue { background: #e3f2fd; color: #1565c0; }
+        footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #e0e0e0;
+                 color: #666; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+<h1>🔬 RAG Benchmark Harness</h1>
+<p>
+    <span class="badge badge-blue">India Union Budget 2026-27</span>
+    <span class="badge badge-green">LLMOps Reference Implementation</span>
+</p>
+
+<p>
+    A systematic benchmark of RAG configurations answering the question:
+    <strong>Which combination of chunking strategy, retrieval method, reranking,
+    and model gives the best quality-to-cost ratio?</strong>
+</p>
+
+<h2>Research Question</h2>
+<p>
+    Across chunking strategies (300/500/800 tokens), retrieval methods
+    (dense / BM25 / hybrid), reranking (on/off), model choice
+    (Llama 3.1 8B / Llama 3.3 70B / Claude Haiku), and prompt strategy
+    (strict / calibrated / citation-forcing) — what configuration maximizes
+    RAG quality at minimal cost, measured by DeepEval and Ragas?
+</p>
+
+<h2>Methodology</h2>
+<div class="metric-card">
+    <strong>Corpus:</strong> India Union Budget Speech 2026-27 (63 pages, 62 chunks)<br>
+    <strong>Eval set:</strong> 5 curated Q/A pairs with factual ground truth<br>
+    <strong>Embedding model:</strong> sentence-transformers/all-MiniLM-L6-v2 (local, free)<br>
+    <strong>Judge LLM:</strong> Claude Haiku (DeepEval) + Groq Llama 8B (Ragas)<br>
+    <strong>Metrics:</strong> Faithfulness, Answer Relevancy, Contextual Precision,
+    Contextual Recall (DeepEval) + Context Recall, Answer Correctness (Ragas)
+</div>
+
+<h2>Experiment Results</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Experiment</th>
+            <th>Config</th>
+            <th>Faithfulness</th>
+            <th>Ans. Relevancy</th>
+            <th>Ctx. Precision</th>
+            <th>Ctx. Recall</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>exp_01_baseline</td>
+            <td>500 chunk, hybrid, rerank, llama-8b</td>
+            <td>0.80</td>
+            <td>1.00</td>
+            <td>0.90</td>
+            <td>0.82</td>
+        </tr>
+        <tr>
+            <td>exp_04_dense_only</td>
+            <td>Dense retrieval only</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+        </tr>
+        <tr>
+            <td>exp_06_no_rerank</td>
+            <td>Hybrid, no reranking</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+        </tr>
+        <tr class="highlight">
+            <td>exp_07_llama_70b</td>
+            <td>Llama 3.3 70B generator</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+        </tr>
+        <tr>
+            <td>exp_08_claude_haiku</td>
+            <td>Claude Haiku generator</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+        </tr>
+    </tbody>
+</table>
+<p><em>Note: — indicates experiment pending. Will be updated after full run.</em></p>
+
+<h2>Key Findings</h2>
+<div class="finding">
+    <strong>Finding 1 — Baseline performance is strong.</strong><br>
+    Hybrid retrieval + cross-encoder reranking + Llama 3.1 8B achieved
+    Faithfulness 0.80, Answer Relevancy 1.00, Contextual Precision 0.90,
+    Contextual Recall 0.82 on the Budget 2026-27 corpus.
+</div>
+<div class="finding">
+    <strong>Finding 2 — Full results pending.</strong><br>
+    Comparative analysis across retrieval methods, reranking, and model
+    variants will be added after completing all 5 experiment runs.
+</div>
+
+<h2>Observability Stack</h2>
+<div class="metric-card">
+    <strong>LangFuse:</strong> Per-call tracing — prompt, completion, tokens, latency, cost<br>
+    <strong>LangSmith:</strong> Parallel tracing for platform comparison<br>
+    <strong>MLflow:</strong> Experiment tracking — all configs and metrics versioned<br>
+    <strong>GitHub Actions:</strong> Nightly eval with regression detection (10% threshold)
+</div>
+
+<h2>LangFuse vs LangSmith Comparison</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Dimension</th>
+            <th>LangFuse</th>
+            <th>LangSmith</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>Free tier</td><td>50k events/month</td><td>5k traces/month</td></tr>
+        <tr><td>Self-hostable</td><td>✅ Yes (Docker)</td><td>❌ No</td></tr>
+        <tr><td>Setup complexity</td><td>Medium</td><td>Low</td></tr>
+        <tr><td>Cost visibility</td><td>Built-in</td><td>Limited on free tier</td></tr>
+        <tr><td>Verdict</td>
+            <td>Better for self-hosted / open source stacks</td>
+            <td>Better for LangChain-native teams</td></tr>
+    </tbody>
+</table>
+
+<h2>Reproducibility</h2>
+<pre><code>git clone https://github.com/YOUR_USERNAME/rag-benchmark-harness
+cd rag-benchmark-harness
+cp .env.example .env
+# Add your API keys to .env
+docker compose up</code></pre>
+
+<h2>Links</h2>
+<ul>
+    <li><a href="https://github.com/YOUR_USERNAME/rag-benchmark-harness">GitHub Repository</a></li>
+    <li><a href="https://cloud.langfuse.com">LangFuse Traces (read-only)</a></li>
+    <li>Live Demo: Streamlit Cloud (link after deployment)</li>
+</ul>
+
+<footer>
+    Built by Kishore | April 2026 |
+    Stack: ChromaDB · Groq · Claude · LangFuse · LangSmith · MLflow · DeepEval · Ragas
+</footer>
+
+</body>
+</html>

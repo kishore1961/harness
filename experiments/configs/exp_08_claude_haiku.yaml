@@ -1,0 +1,8 @@
+experiment_name: exp_08_claude_haiku
+description: "Claude Haiku proprietary vs OSS"
+chunk_size: 500
+retrieval_method: hybrid
+reranking: true
+top_k: 5
+model_key: claude-haiku
+prompt_version: "1.0"

@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/554232610594591689
+creation_time: 1776590436864
+experiment_id: '554232610594591689'
+last_update_time: 1776590436864
+lifecycle_stage: active
+name: rag-benchmark-harness

@@ -1,0 +1,8 @@
+experiment_name: exp_04_dense_only
+description: "Dense only retrieval vs hybrid"
+chunk_size: 500
+retrieval_method: dense
+reranking: true
+top_k: 5
+model_key: llama-3.1-8b
+prompt_version: "1.0"

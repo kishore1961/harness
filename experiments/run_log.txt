@@ -1,0 +1,145 @@
+2026-04-19 15:27:55.710 | INFO     | __main__:main:124 - Starting all 10 experiments
+2026-04-19 15:27:55.710 | INFO     | __main__:main:125 - Waiting 30s between experiments
+2026-04-19 15:27:55.710 | INFO     | __main__:main:128 - 
+============================================================
+2026-04-19 15:27:55.711 | INFO     | __main__:main:129 - Experiment 1/10: exp_01_baseline
+2026-04-19 15:27:55.711 | INFO     | __main__:main:130 - ============================================================
+/home/kishore/miniconda3/envs/rag-benchmark/lib/python3.11/site-packages/mlflow/utils/requirements_utils.py:20: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources  # noqa: TID251
+2026-04-19 15:27:56.252 | INFO     | experiments.experiment_runner:run_experiment:48 - Starting experiment: exp_01_baseline
+2026-04-19 15:27:56.252 | INFO     | experiments.experiment_runner:run_experiment:49 - Config: {'experiment_name': 'exp_01_baseline', 'description': 'Baseline: hybrid, rerank, llama-3.1-8b, chunk=500', 'chunk_size': 500, 'retrieval_method': 'hybrid', 'reranking': True, 'top_k': 5, 'model_key': 'llama-3.1-8b', 'prompt_version': '1.0'}
+2026-04-19 15:27:56.252 | INFO     | experiments.experiment_runner:reindex_if_needed:17 - Chunk size 500 already indexed. Skipping re-index.
+2026-04-19 15:27:56.252 | INFO     | experiments.experiment_runner:run_experiment:56 - Running DeepEval...
+2026-04-19 15:28:00.700 | INFO     | evaluation.judge_client:get_deepeval_judge:108 - Judge: Anthropic / claude-3-haiku-20240307
+2026-04-19 15:28:00.704 | INFO     | evaluation.deepeval_runner:run_deepeval:58 - Running DeepEval on 5 questions...
+2026-04-19 15:28:00.704 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the fiscal deficit target for 2026-27 as a percentag...
+2026-04-19 15:28:00.705 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=llama-3.1-8b
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-04-19 15:28:00.767 | INFO     | ingestion.embedder:get_model:13 - Loading embedding model: all-MiniLM-L6-v2
+/home/kishore/miniconda3/envs/rag-benchmark/lib/python3.11/site-packages/torch/cuda/__init__.py:180: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 12090). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._cuda_getDeviceCount() > 0
+2026-04-19 15:28:04.231 | INFO     | ingestion.embedder:get_model:15 - Embedding model loaded
+Failed to send telemetry event CollectionQueryEvent: capture() takes 1 positional argument but 3 were given
+2026-04-19 15:28:04.272 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-19 15:28:04.275 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-19 15:28:04.275 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-19 15:28:04.275 | INFO     | retrieval.reranker:get_reranker:12 - Loading reranker: cross-encoder/ms-marco-MiniLM-L-6-v2
+2026-04-19 15:28:06.911 | INFO     | retrieval.reranker:get_reranker:14 - Reranker loaded
+2026-04-19 15:28:07.703 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-19 15:28:07.704 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-19 15:28:08.224 | DEBUG    | generation.llm_client:call_llm:44 - LLM call | model=llama-3.1-8b | latency=520ms | tokens=1820
+2026-04-19 15:28:08.225 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the fiscal deficit estimate for 2025-26 as a percent...
+2026-04-19 15:28:08.225 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=llama-3.1-8b
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-04-19 15:28:08.239 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-19 15:28:08.242 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-19 15:28:08.243 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-19 15:28:08.995 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-19 15:28:08.996 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-19 15:28:09.654 | DEBUG    | generation.llm_client:call_llm:44 - LLM call | model=llama-3.1-8b | latency=658ms | tokens=1809
+2026-04-19 15:28:09.655 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the proposed MAT rate after the reduction mentioned ...
+2026-04-19 15:28:09.655 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=llama-3.1-8b
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-04-19 15:28:09.675 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-19 15:28:09.679 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-19 15:28:09.679 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-19 15:28:10.350 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-19 15:28:10.351 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-19 15:28:19.042 | DEBUG    | generation.llm_client:call_llm:44 - LLM call | model=llama-3.1-8b | latency=8690ms | tokens=1830
+2026-04-19 15:28:19.042 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the proposed TCS rate on overseas tour program packa...
+2026-04-19 15:28:19.042 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=llama-3.1-8b
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-04-19 15:28:19.055 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-19 15:28:19.058 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-19 15:28:19.058 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-19 15:28:19.662 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-19 15:28:19.663 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-19 15:28:35.250 | DEBUG    | generation.llm_client:call_llm:44 - LLM call | model=llama-3.1-8b | latency=15586ms | tokens=1696
+2026-04-19 15:28:35.250 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the revised non-debt receipts estimate for 2025-26?...
+2026-04-19 15:28:35.250 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=llama-3.1-8b
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-04-19 15:28:35.264 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-19 15:28:35.267 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-19 15:28:35.268 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-19 15:28:36.039 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-19 15:28:36.040 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-19 15:28:53.686 | DEBUG    | generation.llm_client:call_llm:44 - LLM call | model=llama-3.1-8b | latency=17646ms | tokens=1791
+✨ You're running DeepEval's latest Faithfulness Metric! (using 
+claude-3-haiku-20240307, strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Answer Relevancy Metric! (using 
+claude-3-haiku-20240307, strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Contextual Precision Metric! (using 
+claude-3-haiku-20240307, strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Contextual Recall Metric! (using 
+claude-3-haiku-20240307, strict=False, async_mode=False)...
+
+
+⚠ WARNING: No hyperparameters logged.
+» Log hyperparameters to attribute prompts and models to your test runs.
+
+================================================================================
+
+
+✓ Evaluation completed 🎉! (time taken: 96.53s | token cost: None)
+» Test Results (5 total tests):
+   » Pass Rate: 60.0% | Passed: 3 | Failed: 2
+
+ ===============================================================================
+= 
+
+» Want to share evals with your team, or a place for your test cases to live? ❤️
+🏡
+  » Run 'deepeval view' to analyze and save testing results on Confident AI.
+
+
+2026-04-19 15:30:30.233 | INFO     | evaluation.deepeval_runner:run_deepeval:109 - DeepEval scores: {'faithfulness': 0.8, 'answerrelevancy': 1.0, 'contextualprecision': 0.56, 'contextualrecall': 1.0}
+2026-04-19 15:30:30.233 | INFO     | experiments.experiment_runner:run_experiment:59 - Running Ragas...
+2026-04-19 15:30:30.429 | INFO     | evaluation.ragas_runner:run_ragas:56 - Running Ragas on 5 questions...
+2026-04-19 15:30:30.430 | INFO     | evaluation.ragas_runner:run_ragas:61 -   Running: What is the fiscal deficit target for 2026-27 as a percentag...
+2026-04-19 15:30:30.430 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=llama-3.1-8b
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-04-19 15:30:30.449 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-19 15:30:30.452 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-19 15:30:30.453 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-19 15:30:31.349 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-19 15:30:31.350 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-19 15:30:32.086 | DEBUG    | generation.llm_client:call_llm:44 - LLM call | model=llama-3.1-8b | latency=735ms | tokens=1821
+2026-04-19 15:30:32.086 | INFO     | evaluation.ragas_runner:run_ragas:61 -   Running: What is the fiscal deficit estimate for 2025-26 as a percent...
+2026-04-19 15:30:32.086 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=llama-3.1-8b
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-04-19 15:30:32.100 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-19 15:30:32.103 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-19 15:30:32.103 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-19 15:30:32.896 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-19 15:30:32.897 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-19 15:30:33.573 | DEBUG    | generation.llm_client:call_llm:44 - LLM call | model=llama-3.1-8b | latency=676ms | tokens=1809
+2026-04-19 15:30:33.574 | INFO     | evaluation.ragas_runner:run_ragas:61 -   Running: What is the proposed MAT rate after the reduction mentioned ...
+2026-04-19 15:30:33.574 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=llama-3.1-8b
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-04-19 15:30:33.662 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-19 15:30:33.665 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-19 15:30:33.665 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-19 15:30:34.876 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-19 15:30:34.878 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-19 15:30:35.370 | DEBUG    | generation.llm_client:call_llm:44 - LLM call | model=llama-3.1-8b | latency=492ms | tokens=1830
+2026-04-19 15:30:35.371 | INFO     | evaluation.ragas_runner:run_ragas:61 -   Running: What is the proposed TCS rate on overseas tour program packa...
+2026-04-19 15:30:35.371 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=llama-3.1-8b
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-04-19 15:30:35.390 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-19 15:30:35.394 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-19 15:30:35.395 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-19 15:30:36.146 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-19 15:30:36.148 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-19 15:30:43.806 | DEBUG    | generation.llm_client:call_llm:44 - LLM call | model=llama-3.1-8b | latency=7659ms | tokens=1696
+2026-04-19 15:30:43.807 | INFO     | evaluation.ragas_runner:run_ragas:61 -   Running: What is the revised non-debt receipts estimate for 2025-26?...
+2026-04-19 15:30:43.807 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=llama-3.1-8b
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+2026-04-19 15:30:43.826 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-19 15:30:43.829 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-19 15:30:43.830 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-19 15:30:44.835 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-19 15:30:44.836 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-19 15:31:05.482 | DEBUG    | generation.llm_client:call_llm:44 - LLM call | model=llama-3.1-8b | latency=20645ms | tokens=1807
+/home/kishore/rag-benchmark-harness/evaluation/ragas_runner.py:84: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the langchain-huggingface package and should be used instead. To use it run `pip install -U langchain-huggingface` and import as `from langchain_huggingface import HuggingFaceEmbeddings`.
+  hf_embeddings = HuggingFaceEmbeddings(
+Evaluating:   0%|          | 0/20 [00:00<?, ?it/s]Evaluating:   5%|▌         | 1/20 [01:51<35:15, 111.34s/it]Evaluating:  10%|█         | 2/20 [02:02<15:38, 52.16s/it] Evaluating:  15%|█▌        | 3/20 [02:16<09:50, 34.73s/it]Evaluating:  20%|██        | 4/20 [02:29<06:59, 26.19s/it]Evaluating:  25%|██▌       | 5/20 [02:43<05:26, 21.74s/it]

@@ -1,0 +1,26 @@
+{
+  "config": {
+    "experiment_name": "exp_09_prompt_v1_1",
+    "description": "Prompt v1.1 \u2014 uncertainty calibration",
+    "chunk_size": 500,
+    "retrieval_method": "hybrid",
+    "reranking": true,
+    "top_k": 5,
+    "model_key": "claude-haiku",
+    "prompt_version": "1.1"
+  },
+  "deepeval_scores": {
+    "faithfulness": 0.7,
+    "answerrelevancy": 0.81,
+    "contextualprecision": 1.0,
+    "contextualrecall": 1.0
+  },
+  "ragas_scores": {
+    "faithfulness": 0.8,
+    "context_precision": 1.0,
+    "context_recall": 1.0,
+    "answer_correctness": 0.5646
+  },
+  "mlflow_run_id": "622801c7d7b24e32965b17199deb8b62",
+  "duration_seconds": 240.8
+}

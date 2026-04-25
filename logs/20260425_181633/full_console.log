@@ -240,4 +240,190 @@ Failed to send telemetry event ClientStartEvent: capture() takes 1 positional ar
 Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
 Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
 Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
-Evaluating:   0%|          | 0/20 [00:00<?, ?it/s]Evaluating:   5%|5         | 1/20 [00:11<03:40, 11.61s/it]Evaluating:  20%|##        | 4/20 [00:16<00:55,  3.49s/it]Evaluating:  25%|##5       | 5/20 [00:26<01:19,  5.33s/it]Evaluating:  30%|###       | 6/20 [00:33<01:21,  5.85s/it]Evaluating:  45%|####5     | 9/20 [00:38<00:38,  3.52s/it]Evaluating:  55%|#####5    | 11/20 [00:41<00:26,  2.90s/it]Evaluating:  60%|######    | 12/20 [00:50<00:31,  3.96s/it]Evaluating:  70%|#######   | 14/20 [00:57<00:23,  3.84s/it]Evaluating:  75%|#######5  | 15/20 [01:00<00:18,  3.78s/it]Evaluating:  80%|########  | 16/20 [01:06<00:16,  4.25s/it]Evaluating:  85%|########5 | 17/20 [01:08<00:10,  3.62s/it]Evaluating:  90%|######### | 18/20 [01:10<00:06,  3.13s/it]
+Evaluating:   0%|          | 0/20 [00:00<?, ?it/s]Evaluating:   5%|5         | 1/20 [00:11<03:40, 11.61s/it]Evaluating:  20%|##        | 4/20 [00:16<00:55,  3.49s/it]Evaluating:  25%|##5       | 5/20 [00:26<01:19,  5.33s/it]Evaluating:  30%|###       | 6/20 [00:33<01:21,  5.85s/it]Evaluating:  45%|####5     | 9/20 [00:38<00:38,  3.52s/it]Evaluating:  55%|#####5    | 11/20 [00:41<00:26,  2.90s/it]Evaluating:  60%|######    | 12/20 [00:50<00:31,  3.96s/it]Evaluating:  70%|#######   | 14/20 [00:57<00:23,  3.84s/it]Evaluating:  75%|#######5  | 15/20 [01:00<00:18,  3.78s/it]Evaluating:  80%|########  | 16/20 [01:06<00:16,  4.25s/it]Evaluating:  85%|########5 | 17/20 [01:08<00:10,  3.62s/it]Evaluating:  90%|######### | 18/20 [01:10<00:06,  3.13s/it]Evaluating: 100%|##########| 20/20 [01:15<00:00,  3.01s/it]Evaluating: 100%|##########| 20/20 [01:15<00:00,  3.80s/it]
+
+✅ exp_06_no_rerank complete
+   DeepEval faithfulness: 0.7333
+   Ragas faithfulness:    0.9
+   MLflow run:            69fa8fc44e4b43dfbae355e2056b7fb7
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+✨ You're running DeepEval's latest Faithfulness Metric! (using claude-haiku-4-5-20251001, strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Answer Relevancy Metric! (using claude-haiku-4-5-20251001, strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Contextual Precision Metric! (using claude-haiku-4-5-20251001, strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Contextual Recall Metric! (using claude-haiku-4-5-20251001, strict=False, async_mode=False)...
+
+
+⚠ WARNING: No hyperparameters logged.
+» Log hyperparameters to attribute prompts and models to your test runs.
+
+================================================================================
+Results saved in ./experiments/deepeval_results as 20260425_184152
+
+
+✓ Evaluation completed 🎉! (time taken: 91.88s | token cost: None)
+» Test Results (5 total tests):
+   » Pass Rate: 80.0% | Passed: 4 | Failed: 1
+
+ ================================================================================ 
+
+» Want to share evals with your team, or a place for your test cases to live? ❤️ 🏡
+  » Run 'deepeval view' to analyze and save testing results on Confident AI.
+
+
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Evaluating:   0%|          | 0/20 [00:00<?, ?it/s]Evaluating:   5%|5         | 1/20 [00:12<04:03, 12.83s/it]Evaluating:  15%|#5        | 3/20 [00:18<01:33,  5.52s/it]Evaluating:  20%|##        | 4/20 [00:19<01:03,  3.99s/it]Evaluating:  25%|##5       | 5/20 [00:23<00:57,  3.83s/it]Evaluating:  30%|###       | 6/20 [00:25<00:47,  3.37s/it]Evaluating:  35%|###5      | 7/20 [00:30<00:49,  3.77s/it]Evaluating:  40%|####      | 8/20 [00:34<00:44,  3.73s/it]Evaluating:  45%|####5     | 9/20 [00:53<01:34,  8.62s/it]Evaluating:  55%|#####5    | 11/20 [00:56<00:47,  5.27s/it]Evaluating:  65%|######5   | 13/20 [00:57<00:23,  3.40s/it]Evaluating:  70%|#######   | 14/20 [00:58<00:17,  2.89s/it]Evaluating:  75%|#######5  | 15/20 [01:00<00:12,  2.48s/it]Evaluating:  80%|########  | 16/20 [01:01<00:08,  2.22s/it]Evaluating:  85%|########5 | 17/20 [01:05<00:07,  2.57s/it]Evaluating:  95%|#########5| 19/20 [01:07<00:01,  1.97s/it]Evaluating: 100%|##########| 20/20 [01:09<00:00,  2.06s/it]Evaluating: 100%|##########| 20/20 [01:09<00:00,  3.49s/it]
+
+✅ exp_07_top_k_3 complete
+   DeepEval faithfulness: 0.8
+   Ragas faithfulness:    0.9
+   MLflow run:            8190c79de55743c094161814881b2402
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+✨ You're running DeepEval's latest Faithfulness Metric! (using claude-haiku-4-5-20251001, strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Answer Relevancy Metric! (using claude-haiku-4-5-20251001, strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Contextual Precision Metric! (using claude-haiku-4-5-20251001, strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Contextual Recall Metric! (using claude-haiku-4-5-20251001, strict=False, async_mode=False)...
+
+
+⚠ WARNING: No hyperparameters logged.
+» Log hyperparameters to attribute prompts and models to your test runs.
+
+================================================================================
+Results saved in ./experiments/deepeval_results as 20260425_184611
+
+
+✓ Evaluation completed 🎉! (time taken: 156.28s | token cost: None)
+» Test Results (5 total tests):
+   » Pass Rate: 80.0% | Passed: 4 | Failed: 1
+
+ ================================================================================ 
+
+» Want to share evals with your team, or a place for your test cases to live? ❤️ 🏡
+  » Run 'deepeval view' to analyze and save testing results on Confident AI.
+
+
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Evaluating:   0%|          | 0/20 [00:00<?, ?it/s]Evaluating:   5%|5         | 1/20 [00:11<03:35, 11.32s/it]Evaluating:  10%|#         | 2/20 [00:19<02:50,  9.47s/it]Evaluating:  20%|##        | 4/20 [00:20<01:02,  3.88s/it]Evaluating:  25%|##5       | 5/20 [00:22<00:50,  3.38s/it]Evaluating:  30%|###       | 6/20 [00:31<01:09,  4.97s/it]Evaluating:  35%|###5      | 7/20 [00:42<01:28,  6.83s/it]Evaluating:  50%|#####     | 10/20 [00:49<00:42,  4.22s/it]Evaluating:  55%|#####5    | 11/20 [00:49<00:30,  3.44s/it]Evaluating:  60%|######    | 12/20 [00:50<00:22,  2.78s/it]Evaluating:  70%|#######   | 14/20 [00:58<00:19,  3.27s/it]Evaluating:  80%|########  | 16/20 [01:29<00:30,  7.74s/it]Evaluating:  85%|########5 | 17/20 [01:36<00:22,  7.62s/it]Evaluating:  90%|######### | 18/20 [01:40<00:13,  6.67s/it]Evaluating:  95%|#########5| 19/20 [01:43<00:05,  5.97s/it]Evaluating: 100%|##########| 20/20 [01:45<00:00,  4.84s/it]Evaluating: 100%|##########| 20/20 [01:45<00:00,  5.28s/it]
+
+✅ exp_08_top_k_10 complete
+   DeepEval faithfulness: 0.7
+   Ragas faithfulness:    0.9
+   MLflow run:            7b08c32aedbe4938bd38aba9934f6523
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+✨ You're running DeepEval's latest Faithfulness Metric! (using claude-haiku-4-5-20251001, strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Answer Relevancy Metric! (using claude-haiku-4-5-20251001, strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Contextual Precision Metric! (using claude-haiku-4-5-20251001, strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Contextual Recall Metric! (using claude-haiku-4-5-20251001, strict=False, async_mode=False)...
+
+
+⚠ WARNING: No hyperparameters logged.
+» Log hyperparameters to attribute prompts and models to your test runs.
+
+================================================================================
+Results saved in ./experiments/deepeval_results as 20260425_185048
+
+
+✓ Evaluation completed 🎉! (time taken: 124.2s | token cost: None)
+» Test Results (5 total tests):
+   » Pass Rate: 80.0% | Passed: 4 | Failed: 1
+
+ ================================================================================ 
+
+» Want to share evals with your team, or a place for your test cases to live? ❤️ 🏡
+  » Run 'deepeval view' to analyze and save testing results on Confident AI.
+
+
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Evaluating:   0%|          | 0/20 [00:00<?, ?it/s]Evaluating:   5%|5         | 1/20 [00:11<03:37, 11.44s/it]Evaluating:  15%|#5        | 3/20 [00:23<02:06,  7.44s/it]Evaluating:  30%|###       | 6/20 [00:45<01:43,  7.43s/it]Evaluating:  45%|####5     | 9/20 [00:52<00:54,  4.95s/it]Evaluating:  50%|#####     | 10/20 [00:53<00:42,  4.26s/it]Evaluating:  60%|######    | 12/20 [00:59<00:30,  3.81s/it]Evaluating:  65%|######5   | 13/20 [01:03<00:28,  4.00s/it]Evaluating:  75%|#######5  | 15/20 [01:10<00:18,  3.67s/it]Evaluating:  85%|########5 | 17/20 [01:13<00:09,  3.04s/it]Evaluating:  95%|#########5| 19/20 [01:14<00:02,  2.22s/it]Evaluating: 100%|##########| 20/20 [01:18<00:00,  2.59s/it]Evaluating: 100%|##########| 20/20 [01:18<00:00,  3.95s/it]
+
+✅ exp_09_prompt_v1_1 complete
+   DeepEval faithfulness: 0.7
+   Ragas faithfulness:    0.8
+   MLflow run:            622801c7d7b24e32965b17199deb8b62
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+✨ You're running DeepEval's latest Faithfulness Metric! (using claude-haiku-4-5-20251001, 
+strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Answer Relevancy Metric! (using claude-haiku-4-5-20251001, 
+strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Contextual Precision Metric! (using claude-haiku-4-5-20251001, 
+strict=False, async_mode=False)...
+✨ You're running DeepEval's latest Contextual Recall Metric! (using claude-haiku-4-5-20251001, 
+strict=False, async_mode=False)...
+
+
+⚠ WARNING: No hyperparameters logged.
+» Log hyperparameters to attribute prompts and models to your test runs.
+
+================================================================================
+Results saved in ./experiments/deepeval_results as 20260425_185453
+
+
+✓ Evaluation completed 🎉! (time taken: 130.08s | token cost: None)
+» Test Results (5 total tests):
+   » Pass Rate: 80.0% | Passed: 4 | Failed: 1
+
+ ================================================================================ 
+
+» Want to share evals with your team, or a place for your test cases to live? ❤️ 🏡
+  » Run 'deepeval view' to analyze and save testing results on Confident AI.
+
+
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
+Evaluating:   0%|          | 0/20 [00:00<?, ?it/s]Evaluating:   5%|5         | 1/20 [00:10<03:27, 10.93s/it]Evaluating:  10%|#         | 2/20 [00:18<02:44,  9.13s/it]Evaluating:  25%|##5       | 5/20 [00:32<01:27,  5.84s/it]Evaluating:  35%|###5      | 7/20 [00:39<01:03,  4.89s/it]Evaluating:  45%|####5     | 9/20 [00:40<00:36,  3.31s/it]Evaluating:  55%|#####5    | 11/20 [00:44<00:24,  2.77s/it]Evaluating:  60%|######    | 12/20 [00:48<00:24,  3.12s/it]Evaluating:  70%|#######   | 14/20 [00:59<00:23,  3.94s/it]Evaluating:  75%|#######5  | 15/20 [01:01<00:17,  3.48s/it]Evaluating:  80%|########  | 16/20 [01:04<00:14,  3.53s/it]Evaluating:  85%|########5 | 17/20 [01:08<00:10,  3.48s/it]Evaluating:  90%|######### | 18/20 [01:09<00:05,  2.89s/it]Evaluating:  95%|#########5| 19/20 [01:10<00:02,  2.52s/it]Evaluating: 100%|##########| 20/20 [01:11<00:00,  2.13s/it]Evaluating: 100%|##########| 20/20 [01:11<00:00,  3.60s/it]
+
+✅ exp_10_prompt_v1_2 complete
+   DeepEval faithfulness: 0.6667
+   Ragas faithfulness:    0.8333
+   MLflow run:            19c4e1db15f245f5a058f7698c4bfc66
+
+============================================================
+ALL EXPERIMENTS COMPLETE
+============================================================
+Run directory: logs/20260425_181633
+Model used:    claude-haiku
+Completed:     10/10
+Results:       logs/20260425_181633/all_results.json
+
+Experiment                D-Faith D-Relev  D-Prec D-Recall | R-Faith  R-Prec R-Recall  R-Corr
+---------------------------------------------------------------------------------------------------------
+exp_01_baseline             0.750   0.860   1.000    1.000 |   0.900   1.000    1.000   0.555
+exp_02_chunk_300            0.750   0.910   1.000    1.000 |   0.900   1.000    1.000   0.605
+exp_03_chunk_800            0.883   0.860   1.000    1.000 |   0.850   1.000    1.000   0.553
+exp_04_dense_only           0.800   0.880   1.000    1.000 |   0.900   1.000    1.000   0.539
+exp_05_bm25_only            0.800   0.920   1.000    1.000 |   0.900   1.000    1.000   0.515
+exp_06_no_rerank            0.733   0.870   1.000    1.000 |   0.900   1.000    1.000   0.489
+exp_07_top_k_3              0.800   0.950   1.000    1.000 |   0.900   1.000    1.000   0.634
+exp_08_top_k_10             0.700   0.870   1.000    1.000 |   0.900   1.000    1.000   0.525
+exp_09_prompt_v1_1          0.700   0.810   1.000    1.000 |   0.800   1.000    1.000   0.565
+exp_10_prompt_v1_2          0.667   0.733   1.000    1.000 |   0.833   1.000    1.000   0.485

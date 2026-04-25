@@ -582,3 +582,435 @@
 2026-04-25 18:38:43.389 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
 2026-04-25 18:38:44.661 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1272ms | tokens=2094 | cost=$0.0005615
 2026-04-25 18:38:44.672 | INFO     | evaluation.ragas_runner:_get_ragas_judge:46 - Ragas judge: Anthropic / claude-haiku-4-5-20251001
+2026-04-25 18:40:07.096 | DEBUG    | evaluation.ragas_runner:run_ragas:147 - Ragas result columns: ['user_input', 'retrieved_contexts', 'response', 'reference', 'faithfulness', 'context_precision', 'context_recall', 'answer_correctness']
+2026-04-25 18:40:07.096 | INFO     | evaluation.ragas_runner:run_ragas:159 - Ragas scores: {'faithfulness': 0.9, 'context_precision': 1.0, 'context_recall': 1.0, 'answer_correctness': 0.4889}
+2026-04-25 18:40:07.136 | INFO     | experiments.mlflow_logger:log_experiment:50 - MLflow run logged: 69fa8fc44e4b43dfbae355e2056b7fb7
+2026-04-25 18:40:07.140 | INFO     | experiments.experiment_runner:run_experiment:79 - Experiment complete: exp_06_no_rerank
+2026-04-25 18:40:07.140 | INFO     | experiments.experiment_runner:run_experiment:80 - DeepEval: {'faithfulness': 0.7333, 'answerrelevancy': 0.87, 'contextualprecision': 1.0, 'contextualrecall': 1.0}
+2026-04-25 18:40:07.141 | INFO     | experiments.experiment_runner:run_experiment:81 - Ragas: {'faithfulness': 0.9, 'context_precision': 1.0, 'context_recall': 1.0, 'answer_correctness': 0.4889}
+2026-04-25 18:40:07.141 | INFO     | experiments.experiment_runner:run_experiment:82 - MLflow run: 69fa8fc44e4b43dfbae355e2056b7fb7
+2026-04-25 18:40:07.141 | INFO     | __main__:main:245 - Waiting 5s before next experiment...
+2026-04-25 18:40:12.141 | INFO     | __main__:main:213 - 
+============================================================
+2026-04-25 18:40:12.142 | INFO     | __main__:main:214 - Experiment 7/10: exp_07_top_k_3
+2026-04-25 18:40:12.142 | INFO     | __main__:main:215 - ============================================================
+2026-04-25 18:40:12.142 | INFO     | experiments.experiment_runner:run_experiment:48 - Starting experiment: exp_07_top_k_3
+2026-04-25 18:40:12.142 | INFO     | experiments.experiment_runner:run_experiment:49 - Config: {'experiment_name': 'exp_07_top_k_3', 'description': 'Smaller context window: top_k=3', 'chunk_size': 500, 'retrieval_method': 'hybrid', 'reranking': True, 'top_k': 3, 'model_key': 'claude-haiku', 'prompt_version': '1.0'}
+2026-04-25 18:40:12.142 | INFO     | experiments.experiment_runner:reindex_if_needed:17 - Chunk size 500 already indexed. Skipping re-index.
+2026-04-25 18:40:12.142 | INFO     | experiments.experiment_runner:run_experiment:56 - Running DeepEval...
+2026-04-25 18:40:12.142 | INFO     | evaluation.judge_client:get_deepeval_judge:160 - Judge: Anthropic / claude-haiku-4-5-20251001
+2026-04-25 18:40:12.147 | INFO     | evaluation.deepeval_runner:run_deepeval:58 - Running DeepEval on 5 questions...
+2026-04-25 18:40:12.147 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the fiscal deficit target for 2026-27 as a percentag...
+2026-04-25 18:40:12.147 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:40:12.160 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 12 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:40:12.162 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 12 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:40:12.163 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 6 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:40:12.537 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 3 chunks
+2026-04-25 18:40:12.538 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:40:13.787 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1249ms | tokens=1194 | cost=$0.0003335
+2026-04-25 18:40:13.788 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the fiscal deficit estimate for 2025-26 as a percent...
+2026-04-25 18:40:13.788 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:40:13.805 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 12 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:40:13.808 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 12 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:40:13.809 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 6 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:40:14.106 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 3 chunks
+2026-04-25 18:40:14.106 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:40:15.518 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1412ms | tokens=1315 | cost=$0.00036775
+2026-04-25 18:40:15.519 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the proposed MAT rate after the reduction mentioned ...
+2026-04-25 18:40:15.519 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:40:15.534 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 12 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:40:15.535 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 12 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:40:15.536 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 6 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:40:15.787 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 3 chunks
+2026-04-25 18:40:15.787 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:40:17.515 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1728ms | tokens=1315 | cost=$0.00041075
+2026-04-25 18:40:17.516 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the proposed TCS rate on overseas tour program packa...
+2026-04-25 18:40:17.517 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:40:17.532 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 12 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:40:17.534 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 12 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:40:17.534 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 6 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:40:17.782 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 3 chunks
+2026-04-25 18:40:17.783 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:40:18.892 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1109ms | tokens=1207 | cost=$0.00036975
+2026-04-25 18:40:18.892 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the revised non-debt receipts estimate for 2025-26?...
+2026-04-25 18:40:18.893 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:40:18.914 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 12 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:40:18.918 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 12 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:40:18.918 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 6 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:40:19.232 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 3 chunks
+2026-04-25 18:40:19.233 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:40:20.239 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1006ms | tokens=1110 | cost=$0.0003165
+2026-04-25 18:41:52.137 | INFO     | evaluation.deepeval_runner:run_deepeval:109 - DeepEval scores: {'faithfulness': 0.8, 'answerrelevancy': 0.95, 'contextualprecision': 1.0, 'contextualrecall': 1.0}
+2026-04-25 18:41:52.137 | INFO     | experiments.experiment_runner:run_experiment:59 - Running Ragas...
+2026-04-25 18:41:52.137 | INFO     | evaluation.ragas_runner:run_ragas:98 - Running Ragas on 5 questions...
+2026-04-25 18:41:52.137 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the fiscal deficit target for 2026-27 as a percentag...
+2026-04-25 18:41:52.137 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:41:52.148 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 12 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:41:52.150 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 12 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:41:52.150 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 6 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:41:52.424 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 3 chunks
+2026-04-25 18:41:52.424 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:41:53.547 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1123ms | tokens=1197 | cost=$0.00033725
+2026-04-25 18:41:53.548 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the fiscal deficit estimate for 2025-26 as a percent...
+2026-04-25 18:41:53.549 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:41:53.568 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 12 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:41:53.570 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 12 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:41:53.570 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 6 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:41:53.844 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 3 chunks
+2026-04-25 18:41:53.845 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:41:55.066 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1221ms | tokens=1315 | cost=$0.00036775
+2026-04-25 18:41:55.068 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the proposed MAT rate after the reduction mentioned ...
+2026-04-25 18:41:55.068 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:41:55.089 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 12 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:41:55.092 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 12 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:41:55.092 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 6 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:41:55.333 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 3 chunks
+2026-04-25 18:41:55.333 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:41:57.114 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1780ms | tokens=1315 | cost=$0.00041075
+2026-04-25 18:41:57.115 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the proposed TCS rate on overseas tour program packa...
+2026-04-25 18:41:57.116 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:41:57.132 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 12 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:41:57.134 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 12 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:41:57.134 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 6 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:41:57.360 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 3 chunks
+2026-04-25 18:41:57.361 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:41:58.606 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1244ms | tokens=1207 | cost=$0.00036975
+2026-04-25 18:41:58.607 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the revised non-debt receipts estimate for 2025-26?...
+2026-04-25 18:41:58.608 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:41:58.659 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 12 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:41:58.663 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 12 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:41:58.663 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 6 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:41:58.968 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 3 chunks
+2026-04-25 18:41:58.969 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:42:00.084 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1115ms | tokens=1110 | cost=$0.0003165
+2026-04-25 18:42:00.099 | INFO     | evaluation.ragas_runner:_get_ragas_judge:46 - Ragas judge: Anthropic / claude-haiku-4-5-20251001
+2026-04-25 18:43:15.863 | DEBUG    | evaluation.ragas_runner:run_ragas:147 - Ragas result columns: ['user_input', 'retrieved_contexts', 'response', 'reference', 'faithfulness', 'context_precision', 'context_recall', 'answer_correctness']
+2026-04-25 18:43:15.864 | INFO     | evaluation.ragas_runner:run_ragas:159 - Ragas scores: {'faithfulness': 0.9, 'context_precision': 1.0, 'context_recall': 1.0, 'answer_correctness': 0.6338}
+2026-04-25 18:43:15.909 | INFO     | experiments.mlflow_logger:log_experiment:50 - MLflow run logged: 8190c79de55743c094161814881b2402
+2026-04-25 18:43:15.912 | INFO     | experiments.experiment_runner:run_experiment:79 - Experiment complete: exp_07_top_k_3
+2026-04-25 18:43:15.912 | INFO     | experiments.experiment_runner:run_experiment:80 - DeepEval: {'faithfulness': 0.8, 'answerrelevancy': 0.95, 'contextualprecision': 1.0, 'contextualrecall': 1.0}
+2026-04-25 18:43:15.912 | INFO     | experiments.experiment_runner:run_experiment:81 - Ragas: {'faithfulness': 0.9, 'context_precision': 1.0, 'context_recall': 1.0, 'answer_correctness': 0.6338}
+2026-04-25 18:43:15.912 | INFO     | experiments.experiment_runner:run_experiment:82 - MLflow run: 8190c79de55743c094161814881b2402
+2026-04-25 18:43:15.912 | INFO     | __main__:main:245 - Waiting 5s before next experiment...
+2026-04-25 18:43:20.912 | INFO     | __main__:main:213 - 
+============================================================
+2026-04-25 18:43:20.912 | INFO     | __main__:main:214 - Experiment 8/10: exp_08_top_k_10
+2026-04-25 18:43:20.912 | INFO     | __main__:main:215 - ============================================================
+2026-04-25 18:43:20.913 | INFO     | experiments.experiment_runner:run_experiment:48 - Starting experiment: exp_08_top_k_10
+2026-04-25 18:43:20.913 | INFO     | experiments.experiment_runner:run_experiment:49 - Config: {'experiment_name': 'exp_08_top_k_10', 'description': 'Larger context window: top_k=10', 'chunk_size': 500, 'retrieval_method': 'hybrid', 'reranking': True, 'top_k': 10, 'model_key': 'claude-haiku', 'prompt_version': '1.0'}
+2026-04-25 18:43:20.913 | INFO     | experiments.experiment_runner:reindex_if_needed:17 - Chunk size 500 already indexed. Skipping re-index.
+2026-04-25 18:43:20.913 | INFO     | experiments.experiment_runner:run_experiment:56 - Running DeepEval...
+2026-04-25 18:43:20.913 | INFO     | evaluation.judge_client:get_deepeval_judge:160 - Judge: Anthropic / claude-haiku-4-5-20251001
+2026-04-25 18:43:20.918 | INFO     | evaluation.deepeval_runner:run_deepeval:58 - Running DeepEval on 5 questions...
+2026-04-25 18:43:20.918 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the fiscal deficit target for 2026-27 as a percentag...
+2026-04-25 18:43:20.918 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:43:20.933 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 40 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:43:20.935 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 40 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:43:20.936 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:43:22.103 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 10 chunks
+2026-04-25 18:43:22.103 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:43:23.742 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1639ms | tokens=3987 | cost=$0.00107475
+2026-04-25 18:43:23.744 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the fiscal deficit estimate for 2025-26 as a percent...
+2026-04-25 18:43:23.745 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:43:23.763 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 40 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:43:23.766 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 40 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:43:23.766 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:43:24.864 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 10 chunks
+2026-04-25 18:43:24.865 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:43:26.526 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1661ms | tokens=3767 | cost=$0.00097975
+2026-04-25 18:43:26.527 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the proposed MAT rate after the reduction mentioned ...
+2026-04-25 18:43:26.527 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:43:26.574 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 40 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:43:26.577 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 40 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:43:26.577 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:43:27.744 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 10 chunks
+2026-04-25 18:43:27.745 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:43:29.373 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1628ms | tokens=4146 | cost=$0.0011095
+2026-04-25 18:43:29.374 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the proposed TCS rate on overseas tour program packa...
+2026-04-25 18:43:29.374 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:43:29.387 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 40 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:43:29.388 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 40 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:43:29.389 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:43:30.429 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 10 chunks
+2026-04-25 18:43:30.430 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:43:32.160 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1730ms | tokens=3971 | cost=$0.00106675
+2026-04-25 18:43:32.163 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the revised non-debt receipts estimate for 2025-26?...
+2026-04-25 18:43:32.163 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:43:32.188 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 40 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:43:32.192 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 40 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:43:32.193 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:43:33.339 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 10 chunks
+2026-04-25 18:43:33.340 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:43:34.804 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1464ms | tokens=4119 | cost=$0.00106775
+2026-04-25 18:46:11.111 | INFO     | evaluation.deepeval_runner:run_deepeval:109 - DeepEval scores: {'faithfulness': 0.7, 'answerrelevancy': 0.87, 'contextualprecision': 1.0, 'contextualrecall': 1.0}
+2026-04-25 18:46:11.112 | INFO     | experiments.experiment_runner:run_experiment:59 - Running Ragas...
+2026-04-25 18:46:11.112 | INFO     | evaluation.ragas_runner:run_ragas:98 - Running Ragas on 5 questions...
+2026-04-25 18:46:11.112 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the fiscal deficit target for 2026-27 as a percentag...
+2026-04-25 18:46:11.112 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:46:11.146 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 40 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:46:11.150 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 40 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:46:11.150 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:46:12.514 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 10 chunks
+2026-04-25 18:46:12.515 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:46:14.648 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=2133ms | tokens=3995 | cost=$0.00108475
+2026-04-25 18:46:14.649 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the fiscal deficit estimate for 2025-26 as a percent...
+2026-04-25 18:46:14.649 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:46:14.660 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 40 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:46:14.662 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 40 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:46:14.662 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:46:16.089 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 10 chunks
+2026-04-25 18:46:16.090 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:46:17.251 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1160ms | tokens=3767 | cost=$0.00097975
+2026-04-25 18:46:17.251 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the proposed MAT rate after the reduction mentioned ...
+2026-04-25 18:46:17.251 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:46:17.262 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 40 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:46:17.264 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 40 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:46:17.264 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:46:18.609 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 10 chunks
+2026-04-25 18:46:18.609 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:46:21.781 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=3172ms | tokens=4146 | cost=$0.0011095
+2026-04-25 18:46:21.782 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the proposed TCS rate on overseas tour program packa...
+2026-04-25 18:46:21.783 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:46:21.830 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 40 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:46:21.832 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 40 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:46:21.832 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:46:22.959 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 10 chunks
+2026-04-25 18:46:22.960 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:46:24.583 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1622ms | tokens=3964 | cost=$0.001058
+2026-04-25 18:46:24.583 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the revised non-debt receipts estimate for 2025-26?...
+2026-04-25 18:46:24.584 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:46:24.598 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 40 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:46:24.600 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 40 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:46:24.600 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:46:25.926 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 10 chunks
+2026-04-25 18:46:25.927 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.0
+2026-04-25 18:46:28.865 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=2937ms | tokens=4119 | cost=$0.00106775
+2026-04-25 18:46:28.871 | INFO     | evaluation.ragas_runner:_get_ragas_judge:46 - Ragas judge: Anthropic / claude-haiku-4-5-20251001
+2026-04-25 18:48:19.785 | DEBUG    | evaluation.ragas_runner:run_ragas:147 - Ragas result columns: ['user_input', 'retrieved_contexts', 'response', 'reference', 'faithfulness', 'context_precision', 'context_recall', 'answer_correctness']
+2026-04-25 18:48:19.785 | INFO     | evaluation.ragas_runner:run_ragas:159 - Ragas scores: {'faithfulness': 0.9, 'context_precision': 1.0, 'context_recall': 1.0, 'answer_correctness': 0.5246}
+2026-04-25 18:48:19.835 | INFO     | experiments.mlflow_logger:log_experiment:50 - MLflow run logged: 7b08c32aedbe4938bd38aba9934f6523
+2026-04-25 18:48:19.840 | INFO     | experiments.experiment_runner:run_experiment:79 - Experiment complete: exp_08_top_k_10
+2026-04-25 18:48:19.840 | INFO     | experiments.experiment_runner:run_experiment:80 - DeepEval: {'faithfulness': 0.7, 'answerrelevancy': 0.87, 'contextualprecision': 1.0, 'contextualrecall': 1.0}
+2026-04-25 18:48:19.840 | INFO     | experiments.experiment_runner:run_experiment:81 - Ragas: {'faithfulness': 0.9, 'context_precision': 1.0, 'context_recall': 1.0, 'answer_correctness': 0.5246}
+2026-04-25 18:48:19.840 | INFO     | experiments.experiment_runner:run_experiment:82 - MLflow run: 7b08c32aedbe4938bd38aba9934f6523
+2026-04-25 18:48:19.841 | INFO     | __main__:main:245 - Waiting 5s before next experiment...
+2026-04-25 18:48:24.841 | INFO     | __main__:main:213 - 
+============================================================
+2026-04-25 18:48:24.841 | INFO     | __main__:main:214 - Experiment 9/10: exp_09_prompt_v1_1
+2026-04-25 18:48:24.842 | INFO     | __main__:main:215 - ============================================================
+2026-04-25 18:48:24.842 | INFO     | experiments.experiment_runner:run_experiment:48 - Starting experiment: exp_09_prompt_v1_1
+2026-04-25 18:48:24.842 | INFO     | experiments.experiment_runner:run_experiment:49 - Config: {'experiment_name': 'exp_09_prompt_v1_1', 'description': 'Prompt v1.1 — uncertainty calibration', 'chunk_size': 500, 'retrieval_method': 'hybrid', 'reranking': True, 'top_k': 5, 'model_key': 'claude-haiku', 'prompt_version': '1.1'}
+2026-04-25 18:48:24.842 | INFO     | experiments.experiment_runner:reindex_if_needed:17 - Chunk size 500 already indexed. Skipping re-index.
+2026-04-25 18:48:24.842 | INFO     | experiments.experiment_runner:run_experiment:56 - Running DeepEval...
+2026-04-25 18:48:24.842 | INFO     | evaluation.judge_client:get_deepeval_judge:160 - Judge: Anthropic / claude-haiku-4-5-20251001
+2026-04-25 18:48:24.850 | INFO     | evaluation.deepeval_runner:run_deepeval:58 - Running DeepEval on 5 questions...
+2026-04-25 18:48:24.850 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the fiscal deficit target for 2026-27 as a percentag...
+2026-04-25 18:48:24.850 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:48:24.884 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:48:24.886 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:48:24.887 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:48:25.475 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:48:25.476 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.1
+2026-04-25 18:48:27.554 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=2078ms | tokens=2067 | cost=$0.00060475
+2026-04-25 18:48:27.554 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the fiscal deficit estimate for 2025-26 as a percent...
+2026-04-25 18:48:27.554 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:48:27.571 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:48:27.574 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:48:27.574 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:48:28.164 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:48:28.165 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.1
+2026-04-25 18:48:31.046 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=2881ms | tokens=2016 | cost=$0.000543
+2026-04-25 18:48:31.047 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the proposed MAT rate after the reduction mentioned ...
+2026-04-25 18:48:31.047 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:48:31.065 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:48:31.069 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:48:31.069 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:48:31.594 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:48:31.595 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.1
+2026-04-25 18:48:33.404 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1808ms | tokens=2016 | cost=$0.000578
+2026-04-25 18:48:33.405 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the proposed TCS rate on overseas tour program packa...
+2026-04-25 18:48:33.405 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:48:33.419 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:48:33.421 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:48:33.421 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:48:33.862 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:48:33.862 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.1
+2026-04-25 18:48:42.287 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=8424ms | tokens=1906 | cost=$0.0005565
+2026-04-25 18:48:42.287 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the revised non-debt receipts estimate for 2025-26?...
+2026-04-25 18:48:42.287 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:48:42.353 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:48:42.355 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:48:42.356 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:48:42.991 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:48:42.992 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.1
+2026-04-25 18:48:44.180 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1187ms | tokens=1944 | cost=$0.000524
+2026-04-25 18:50:48.395 | INFO     | evaluation.deepeval_runner:run_deepeval:109 - DeepEval scores: {'faithfulness': 0.7, 'answerrelevancy': 0.81, 'contextualprecision': 1.0, 'contextualrecall': 1.0}
+2026-04-25 18:50:48.395 | INFO     | experiments.experiment_runner:run_experiment:59 - Running Ragas...
+2026-04-25 18:50:48.396 | INFO     | evaluation.ragas_runner:run_ragas:98 - Running Ragas on 5 questions...
+2026-04-25 18:50:48.396 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the fiscal deficit target for 2026-27 as a percentag...
+2026-04-25 18:50:48.396 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:50:48.489 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:50:48.492 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:50:48.492 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:50:49.131 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:50:49.132 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.1
+2026-04-25 18:50:50.828 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1696ms | tokens=2067 | cost=$0.00060475
+2026-04-25 18:50:50.828 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the fiscal deficit estimate for 2025-26 as a percent...
+2026-04-25 18:50:50.829 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:50:50.840 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:50:50.842 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:50:50.842 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:50:51.509 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:50:51.510 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.1
+2026-04-25 18:50:52.666 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1157ms | tokens=2016 | cost=$0.000543
+2026-04-25 18:50:52.667 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the proposed MAT rate after the reduction mentioned ...
+2026-04-25 18:50:52.667 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:50:52.676 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:50:52.678 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:50:52.679 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:50:53.283 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:50:53.284 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.1
+2026-04-25 18:50:55.840 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=2556ms | tokens=2043 | cost=$0.00061175
+2026-04-25 18:50:55.841 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the proposed TCS rate on overseas tour program packa...
+2026-04-25 18:50:55.841 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:50:55.884 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:50:55.886 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:50:55.886 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:50:56.355 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:50:56.356 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.1
+2026-04-25 18:50:57.993 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1637ms | tokens=1906 | cost=$0.0005565
+2026-04-25 18:50:57.994 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the revised non-debt receipts estimate for 2025-26?...
+2026-04-25 18:50:57.994 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:50:58.006 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:50:58.008 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:50:58.009 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:50:58.671 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:50:58.672 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.1
+2026-04-25 18:50:59.805 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1132ms | tokens=1945 | cost=$0.00052525
+2026-04-25 18:50:59.810 | INFO     | evaluation.ragas_runner:_get_ragas_judge:46 - Ragas judge: Anthropic / claude-haiku-4-5-20251001
+2026-04-25 18:52:25.656 | DEBUG    | evaluation.ragas_runner:run_ragas:147 - Ragas result columns: ['user_input', 'retrieved_contexts', 'response', 'reference', 'faithfulness', 'context_precision', 'context_recall', 'answer_correctness']
+2026-04-25 18:52:25.657 | INFO     | evaluation.ragas_runner:run_ragas:159 - Ragas scores: {'faithfulness': 0.8, 'context_precision': 1.0, 'context_recall': 1.0, 'answer_correctness': 0.5646}
+2026-04-25 18:52:25.693 | INFO     | experiments.mlflow_logger:log_experiment:50 - MLflow run logged: 622801c7d7b24e32965b17199deb8b62
+2026-04-25 18:52:25.695 | INFO     | experiments.experiment_runner:run_experiment:79 - Experiment complete: exp_09_prompt_v1_1
+2026-04-25 18:52:25.695 | INFO     | experiments.experiment_runner:run_experiment:80 - DeepEval: {'faithfulness': 0.7, 'answerrelevancy': 0.81, 'contextualprecision': 1.0, 'contextualrecall': 1.0}
+2026-04-25 18:52:25.696 | INFO     | experiments.experiment_runner:run_experiment:81 - Ragas: {'faithfulness': 0.8, 'context_precision': 1.0, 'context_recall': 1.0, 'answer_correctness': 0.5646}
+2026-04-25 18:52:25.696 | INFO     | experiments.experiment_runner:run_experiment:82 - MLflow run: 622801c7d7b24e32965b17199deb8b62
+2026-04-25 18:52:25.696 | INFO     | __main__:main:245 - Waiting 5s before next experiment...
+2026-04-25 18:52:30.696 | INFO     | __main__:main:213 - 
+============================================================
+2026-04-25 18:52:30.696 | INFO     | __main__:main:214 - Experiment 10/10: exp_10_prompt_v1_2
+2026-04-25 18:52:30.696 | INFO     | __main__:main:215 - ============================================================
+2026-04-25 18:52:30.696 | INFO     | experiments.experiment_runner:run_experiment:48 - Starting experiment: exp_10_prompt_v1_2
+2026-04-25 18:52:30.696 | INFO     | experiments.experiment_runner:run_experiment:49 - Config: {'experiment_name': 'exp_10_prompt_v1_2', 'description': 'Prompt v1.2 — with citations', 'chunk_size': 500, 'retrieval_method': 'hybrid', 'reranking': True, 'top_k': 5, 'model_key': 'claude-haiku', 'prompt_version': '1.2'}
+2026-04-25 18:52:30.696 | INFO     | experiments.experiment_runner:reindex_if_needed:17 - Chunk size 500 already indexed. Skipping re-index.
+2026-04-25 18:52:30.697 | INFO     | experiments.experiment_runner:run_experiment:56 - Running DeepEval...
+2026-04-25 18:52:30.697 | INFO     | evaluation.judge_client:get_deepeval_judge:160 - Judge: Anthropic / claude-haiku-4-5-20251001
+2026-04-25 18:52:30.701 | INFO     | evaluation.deepeval_runner:run_deepeval:58 - Running DeepEval on 5 questions...
+2026-04-25 18:52:30.701 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the fiscal deficit target for 2026-27 as a percentag...
+2026-04-25 18:52:30.702 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:52:30.713 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:52:30.716 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:52:30.716 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:52:31.274 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:52:31.274 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.2
+2026-04-25 18:52:33.063 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1789ms | tokens=2068 | cost=$0.000599
+2026-04-25 18:52:33.064 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the fiscal deficit estimate for 2025-26 as a percent...
+2026-04-25 18:52:33.064 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:52:33.097 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:52:33.099 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:52:33.099 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:52:33.736 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:52:33.737 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.2
+2026-04-25 18:52:36.097 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=2360ms | tokens=2027 | cost=$0.00054975
+2026-04-25 18:52:36.099 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the proposed MAT rate after the reduction mentioned ...
+2026-04-25 18:52:36.100 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:52:36.117 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:52:36.119 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:52:36.119 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:52:36.587 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:52:36.588 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.2
+2026-04-25 18:52:38.553 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1964ms | tokens=2025 | cost=$0.00058225
+2026-04-25 18:52:38.554 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the proposed TCS rate on overseas tour program packa...
+2026-04-25 18:52:38.554 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:52:38.584 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:52:38.588 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:52:38.588 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:52:39.030 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:52:39.031 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.2
+2026-04-25 18:52:40.702 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1671ms | tokens=1915 | cost=$0.00056075
+2026-04-25 18:52:40.703 | INFO     | evaluation.deepeval_runner:run_deepeval:62 -   Running: What is the revised non-debt receipts estimate for 2025-26?...
+2026-04-25 18:52:40.704 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:52:40.738 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:52:40.741 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:52:40.742 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:52:41.283 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:52:41.284 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.2
+2026-04-25 18:52:42.962 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1678ms | tokens=1979 | cost=$0.00056075
+2026-04-25 18:54:53.071 | INFO     | evaluation.deepeval_runner:run_deepeval:109 - DeepEval scores: {'faithfulness': 0.6667, 'answerrelevancy': 0.7333, 'contextualprecision': 1.0, 'contextualrecall': 1.0}
+2026-04-25 18:54:53.071 | INFO     | experiments.experiment_runner:run_experiment:59 - Running Ragas...
+2026-04-25 18:54:53.072 | INFO     | evaluation.ragas_runner:run_ragas:98 - Running Ragas on 5 questions...
+2026-04-25 18:54:53.072 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the fiscal deficit target for 2026-27 as a percentag...
+2026-04-25 18:54:53.072 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:54:53.126 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:54:53.129 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:54:53.130 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the fiscal deficit target for 2026-27 as a'
+2026-04-25 18:54:53.733 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:54:53.734 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.2
+2026-04-25 18:54:55.492 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1759ms | tokens=2068 | cost=$0.000599
+2026-04-25 18:54:55.493 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the fiscal deficit estimate for 2025-26 as a percent...
+2026-04-25 18:54:55.493 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:54:55.508 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:54:55.510 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:54:55.511 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the fiscal deficit estimate for 2025-26 as'
+2026-04-25 18:54:56.154 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:54:56.155 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.2
+2026-04-25 18:54:57.683 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1528ms | tokens=2027 | cost=$0.00054975
+2026-04-25 18:54:57.684 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the proposed MAT rate after the reduction mentioned ...
+2026-04-25 18:54:57.684 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:54:57.694 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:54:57.696 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:54:57.696 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the proposed MAT rate after the reduction '
+2026-04-25 18:54:58.207 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:54:58.208 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.2
+2026-04-25 18:55:00.091 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1883ms | tokens=2025 | cost=$0.00058225
+2026-04-25 18:55:00.091 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the proposed TCS rate on overseas tour program packa...
+2026-04-25 18:55:00.092 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:55:00.102 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:55:00.104 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:55:00.104 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the proposed TCS rate on overseas tour pro'
+2026-04-25 18:55:00.569 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:55:00.570 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.2
+2026-04-25 18:55:02.532 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1962ms | tokens=1915 | cost=$0.00056075
+2026-04-25 18:55:02.535 | INFO     | evaluation.ragas_runner:run_ragas:103 -   Running: What is the revised non-debt receipts estimate for 2025-26?...
+2026-04-25 18:55:02.535 | INFO     | pipeline:run_rag_pipeline:23 - Running RAG | retrieval=hybrid | reranking=True | model=claude-haiku
+2026-04-25 18:55:02.565 | DEBUG    | retrieval.dense_retriever:dense_retrieve:33 - Dense retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:55:02.570 | DEBUG    | retrieval.bm25_retriever:bm25_retrieve:39 - BM25 retrieved 20 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:55:02.571 | DEBUG    | retrieval.hybrid_retriever:hybrid_retrieve:49 - Hybrid retrieved 10 chunks for: 'What is the revised non-debt receipts estimate for'
+2026-04-25 18:55:03.175 | DEBUG    | retrieval.reranker:rerank:45 - Reranked to top 5 chunks
+2026-04-25 18:55:03.176 | DEBUG    | generation.prompt_manager:load_prompt:13 - Loaded prompt version 1.2
+2026-04-25 18:55:04.947 | DEBUG    | generation.llm_client:call_llm:51 - LLM call | model=claude-haiku | latency=1771ms | tokens=1979 | cost=$0.00056075
+2026-04-25 18:55:04.955 | INFO     | evaluation.ragas_runner:_get_ragas_judge:46 - Ragas judge: Anthropic / claude-haiku-4-5-20251001
+2026-04-25 18:56:21.895 | DEBUG    | evaluation.ragas_runner:run_ragas:147 - Ragas result columns: ['user_input', 'retrieved_contexts', 'response', 'reference', 'faithfulness', 'context_precision', 'context_recall', 'answer_correctness']
+2026-04-25 18:56:21.896 | INFO     | evaluation.ragas_runner:run_ragas:159 - Ragas scores: {'faithfulness': 0.8333, 'context_precision': 1.0, 'context_recall': 1.0, 'answer_correctness': 0.4846}
+2026-04-25 18:56:21.943 | INFO     | experiments.mlflow_logger:log_experiment:50 - MLflow run logged: 19c4e1db15f245f5a058f7698c4bfc66
+2026-04-25 18:56:21.945 | INFO     | experiments.experiment_runner:run_experiment:79 - Experiment complete: exp_10_prompt_v1_2
+2026-04-25 18:56:21.945 | INFO     | experiments.experiment_runner:run_experiment:80 - DeepEval: {'faithfulness': 0.6667, 'answerrelevancy': 0.7333, 'contextualprecision': 1.0, 'contextualrecall': 1.0}
+2026-04-25 18:56:21.945 | INFO     | experiments.experiment_runner:run_experiment:81 - Ragas: {'faithfulness': 0.8333, 'context_precision': 1.0, 'context_recall': 1.0, 'answer_correctness': 0.4846}
+2026-04-25 18:56:21.945 | INFO     | experiments.experiment_runner:run_experiment:82 - MLflow run: 19c4e1db15f245f5a058f7698c4bfc66
+2026-04-25 18:56:21.946 | INFO     | __main__:main:293 - All logs saved to: logs/20260425_181633/
+2026-04-25 18:56:21.946 | INFO     | __main__:main:294 - Files in run directory:
+2026-04-25 18:56:21.946 | INFO     | __main__:main:296 -   all_results.json
+2026-04-25 18:56:21.946 | INFO     | __main__:main:296 -   exp_01_baseline_result.json
+2026-04-25 18:56:21.946 | INFO     | __main__:main:296 -   exp_02_chunk_300_result.json
+2026-04-25 18:56:21.946 | INFO     | __main__:main:296 -   exp_03_chunk_800_result.json
+2026-04-25 18:56:21.946 | INFO     | __main__:main:296 -   exp_04_dense_only_result.json
+2026-04-25 18:56:21.947 | INFO     | __main__:main:296 -   exp_05_bm25_only_result.json
+2026-04-25 18:56:21.947 | INFO     | __main__:main:296 -   exp_06_no_rerank_result.json
+2026-04-25 18:56:21.947 | INFO     | __main__:main:296 -   exp_07_top_k_3_result.json
+2026-04-25 18:56:21.947 | INFO     | __main__:main:296 -   exp_08_top_k_10_result.json
+2026-04-25 18:56:21.947 | INFO     | __main__:main:296 -   exp_09_prompt_v1_1_result.json
+2026-04-25 18:56:21.947 | INFO     | __main__:main:296 -   exp_10_prompt_v1_2_result.json
+2026-04-25 18:56:21.947 | INFO     | __main__:main:296 -   full_console.log
+2026-04-25 18:56:21.947 | INFO     | __main__:main:296 -   run_config.json
+2026-04-25 18:56:21.947 | INFO     | __main__:main:296 -   structured.log
+2026-04-25 18:56:21.947 | INFO     | __main__:main:296 -   summary.txt

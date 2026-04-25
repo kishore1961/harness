@@ -1,0 +1,26 @@
+{
+  "config": {
+    "experiment_name": "exp_08_top_k_10",
+    "description": "Larger context window: top_k=10",
+    "chunk_size": 500,
+    "retrieval_method": "hybrid",
+    "reranking": true,
+    "top_k": 10,
+    "model_key": "claude-haiku",
+    "prompt_version": "1.0"
+  },
+  "deepeval_scores": {
+    "faithfulness": 0.7,
+    "answerrelevancy": 0.87,
+    "contextualprecision": 1.0,
+    "contextualrecall": 1.0
+  },
+  "ragas_scores": {
+    "faithfulness": 0.9,
+    "context_precision": 1.0,
+    "context_recall": 1.0,
+    "answer_correctness": 0.5246
+  },
+  "mlflow_run_id": "7b08c32aedbe4938bd38aba9934f6523",
+  "duration_seconds": 298.9
+}

@@ -133,7 +133,7 @@ def get_models():
     return {
         "groq": ["llama-3.1-8b", "llama-3.3-70b"],
         "anthropic": ["claude-haiku", "claude-sonnet"],
-        "judge": "claude-3-haiku-20240307"
+        "judge": "claude-haiku-4-5-20251001"
     }
 
 

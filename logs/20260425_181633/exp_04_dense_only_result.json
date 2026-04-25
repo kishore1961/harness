@@ -1,0 +1,26 @@
+{
+  "config": {
+    "experiment_name": "exp_04_dense_only",
+    "description": "Dense-only retrieval",
+    "chunk_size": 500,
+    "retrieval_method": "dense",
+    "reranking": true,
+    "top_k": 5,
+    "model_key": "claude-haiku",
+    "prompt_version": "1.0"
+  },
+  "deepeval_scores": {
+    "faithfulness": 0.8,
+    "answerrelevancy": 0.88,
+    "contextualprecision": 1.0,
+    "contextualrecall": 1.0
+  },
+  "ragas_scores": {
+    "faithfulness": 0.9,
+    "context_precision": 1.0,
+    "context_recall": 1.0,
+    "answer_correctness": 0.5389
+  },
+  "mlflow_run_id": "e1e227ee195a4c648e08b67ba45d2c76",
+  "duration_seconds": 224.2
+}

@@ -2,6 +2,7 @@
 import logging
 logging.getLogger("langsmith").setLevel(logging.CRITICAL)
 logging.getLogger("langsmith.client").setLevel(logging.CRITICAL)
+
 import json
 import os
 import re
@@ -11,11 +12,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Disable LangSmith tracing at the earliest possible point
 os.environ["LANGCHAIN_TRACING_V2"] = "false"
 os.environ["LANGCHAIN_API_KEY"] = "none"
-
-# Stop ragas from trying OpenAI
 os.environ["OPENAI_API_KEY"] = "dummy-not-used"
 
 RAGAS_JUDGE_PROVIDER = os.getenv("RAGAS_JUDGE_PROVIDER", "anthropic")
@@ -33,7 +31,6 @@ def clean_text(text: str) -> str:
 
 
 def _get_ragas_judge():
-    """Return LangchainLLMWrapper for Ragas 0.4.x"""
     from ragas.llms import LangchainLLMWrapper
 
     if RAGAS_JUDGE_PROVIDER == "groq":
@@ -54,18 +51,14 @@ def _get_ragas_judge():
             max_tokens=2048
         )
     else:
-        raise ValueError(
-            f"Unknown RAGAS_JUDGE_PROVIDER: '{RAGAS_JUDGE_PROVIDER}'. "
-            "Use 'groq' or 'anthropic'"
-        )
+        raise ValueError(f"Unknown RAGAS_JUDGE_PROVIDER: '{RAGAS_JUDGE_PROVIDER}'")
 
     return LangchainLLMWrapper(llm)
 
 
 def _get_ragas_embeddings():
-    """Return LangchainEmbeddingsWrapper using local HuggingFace model."""
     from ragas.embeddings import LangchainEmbeddingsWrapper
-    from langchain_huggingface import HuggingFaceEmbeddings   # new package
+    from langchain_huggingface import HuggingFaceEmbeddings
     return LangchainEmbeddingsWrapper(
         HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     )
@@ -75,14 +68,17 @@ def run_ragas(
     eval_set_path: str = "evaluation/eval_set.json",
     config: dict = None
 ) -> dict:
-    # ── Ragas 0.4.x imports ──────────────────────────────────────
-    from ragas import evaluate as ragas_evaluate
-    from ragas.metrics.collections import (
-        Faithfulness,
-        LLMContextPrecisionWithReference,
-        LLMContextRecall,
-        AnswerCorrectness,
-    )
+    # Use old-style ragas.metrics — these still support LangchainLLMWrapper
+    import warnings
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        from ragas import evaluate as ragas_evaluate
+        from ragas.metrics import (
+            faithfulness,
+            context_precision,
+            context_recall,
+            answer_correctness,
+        )
     from datasets import Dataset
     from pipeline import run_rag_pipeline
 
@@ -111,58 +107,60 @@ def run_ragas(
         contexts.append([clean_text(c["text"]) for c in result["retrieved_chunks"]])
         ground_truths.append(clean_text(item["expected_answer"]))
 
+    # Old ragas API uses these column names
     dataset = Dataset.from_dict({
-        "user_input":        questions,
-        "response":          answers,
-        "retrieved_contexts": contexts,
-        "reference":         ground_truths,
+        "question":     questions,
+        "answer":       answers,
+        "contexts":     contexts,
+        "ground_truth": ground_truths,
     })
 
     judge_llm        = _get_ragas_judge()
     judge_embeddings = _get_ragas_embeddings()
 
-    # ── Ragas 0.4.x: pass llm/embeddings in constructor ──────────
-    metrics_list = [
-        Faithfulness(llm=judge_llm),
-        LLMContextPrecisionWithReference(llm=judge_llm),
-        LLMContextRecall(llm=judge_llm),
-        AnswerCorrectness(llm=judge_llm, embeddings=judge_embeddings),
-    ]
+    # Old-style: assign llm after import
+    metrics_list = [faithfulness, context_precision, context_recall, answer_correctness]
+    for m in metrics_list:
+        m.llm = judge_llm
+        if hasattr(m, 'embeddings'):
+            m.embeddings = judge_embeddings
 
-    result = ragas_evaluate(
-        dataset,
-        metrics=metrics_list,
-        raise_exceptions=False,
-        show_progress=True,
-    )
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        result = ragas_evaluate(
+            dataset,
+            metrics=metrics_list,
+            raise_exceptions=False,
+        )
 
-    # ── Map new metric names → your existing key names ────────────
-    name_map = {
-        "faithfulness":                          "faithfulness",
-        "llm_context_precision_with_reference":  "context_precision",
-        "context_recall":                        "context_recall",
-        "answer_correctness":                    "answer_correctness",
+    # Extract scores — old API returns dict-like result
+    scores = {}
+    metric_keys = {
+        "faithfulness":      "faithfulness",
+        "context_precision": "context_precision",
+        "context_recall":    "context_recall",
+        "answer_correctness": "answer_correctness",
     }
 
-    scores = {}
-    result_df = result.to_pandas()
-
-    for ragas_key, our_key in name_map.items():
-        try:
-            col = result_df[ragas_key]
-            val = float(col.mean())
-            scores[our_key] = 0.0 if math.isnan(val) else round(val, 4)
-        except Exception as e:
-            logger.warning(f"Could not extract {ragas_key}: {e}")
-            scores[our_key] = 0.0
+    try:
+        df = result.to_pandas()
+        logger.debug(f"Ragas result columns: {list(df.columns)}")
+        for ragas_key, our_key in metric_keys.items():
+            try:
+                val = float(df[ragas_key].mean())
+                scores[our_key] = 0.0 if math.isnan(val) else round(val, 4)
+            except Exception as e:
+                logger.warning(f"Could not extract {ragas_key}: {e}")
+                scores[our_key] = 0.0
+    except Exception as e:
+        logger.error(f"Could not parse Ragas result: {e}")
+        scores = {k: 0.0 for k in metric_keys.values()}
 
     logger.info(f"Ragas scores: {scores}")
     return scores
 
 
 if __name__ == "__main__":
-    print(f"RAGAS_JUDGE_PROVIDER={RAGAS_JUDGE_PROVIDER}  "
-          f"RAGAS_JUDGE_MODEL={RAGAS_JUDGE_MODEL}\n")
     config = {
         "chunk_size": 500,
         "retrieval_method": "hybrid",

@@ -1,0 +1,26 @@
+{
+  "config": {
+    "experiment_name": "exp_02_chunk_300",
+    "description": "Chunk size 300 vs baseline 500",
+    "chunk_size": 300,
+    "retrieval_method": "hybrid",
+    "reranking": true,
+    "top_k": 5,
+    "model_key": "claude-haiku",
+    "prompt_version": "1.0"
+  },
+  "deepeval_scores": {
+    "faithfulness": 0.75,
+    "answerrelevancy": 0.91,
+    "contextualprecision": 1.0,
+    "contextualrecall": 1.0
+  },
+  "ragas_scores": {
+    "faithfulness": 0.9,
+    "context_precision": 1.0,
+    "context_recall": 1.0,
+    "answer_correctness": 0.6052
+  },
+  "mlflow_run_id": "119aae6b13c14cb0842895adbe8d0531",
+  "duration_seconds": 223.9
+}

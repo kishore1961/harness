@@ -1,0 +1,108 @@
+{
+  "run_timestamp": "20260425_181633",
+  "llm_model_key": "claude-haiku",
+  "wait_between_experiments": 5,
+  "total_experiments": 10,
+  "experiments": [
+    {
+      "experiment_name": "exp_01_baseline",
+      "description": "Baseline: chunk=500, hybrid, rerank, prompt v1.0",
+      "chunk_size": 500,
+      "retrieval_method": "hybrid",
+      "reranking": true,
+      "top_k": 5,
+      "model_key": "claude-haiku",
+      "prompt_version": "1.0"
+    },
+    {
+      "experiment_name": "exp_02_chunk_300",
+      "description": "Chunk size 300 vs baseline 500",
+      "chunk_size": 300,
+      "retrieval_method": "hybrid",
+      "reranking": true,
+      "top_k": 5,
+      "model_key": "claude-haiku",
+      "prompt_version": "1.0"
+    },
+    {
+      "experiment_name": "exp_03_chunk_800",
+      "description": "Chunk size 800 vs baseline 500",
+      "chunk_size": 800,
+      "retrieval_method": "hybrid",
+      "reranking": true,
+      "top_k": 5,
+      "model_key": "claude-haiku",
+      "prompt_version": "1.0"
+    },
+    {
+      "experiment_name": "exp_04_dense_only",
+      "description": "Dense-only retrieval",
+      "chunk_size": 500,
+      "retrieval_method": "dense",
+      "reranking": true,
+      "top_k": 5,
+      "model_key": "claude-haiku",
+      "prompt_version": "1.0"
+    },
+    {
+      "experiment_name": "exp_05_bm25_only",
+      "description": "BM25-only retrieval",
+      "chunk_size": 500,
+      "retrieval_method": "bm25",
+      "reranking": true,
+      "top_k": 5,
+      "model_key": "claude-haiku",
+      "prompt_version": "1.0"
+    },
+    {
+      "experiment_name": "exp_06_no_rerank",
+      "description": "Hybrid without reranking",
+      "chunk_size": 500,
+      "retrieval_method": "hybrid",
+      "reranking": false,
+      "top_k": 5,
+      "model_key": "claude-haiku",
+      "prompt_version": "1.0"
+    },
+    {
+      "experiment_name": "exp_07_top_k_3",
+      "description": "Smaller context window: top_k=3",
+      "chunk_size": 500,
+      "retrieval_method": "hybrid",
+      "reranking": true,
+      "top_k": 3,
+      "model_key": "claude-haiku",
+      "prompt_version": "1.0"
+    },
+    {
+      "experiment_name": "exp_08_top_k_10",
+      "description": "Larger context window: top_k=10",
+      "chunk_size": 500,
+      "retrieval_method": "hybrid",
+      "reranking": true,
+      "top_k": 10,
+      "model_key": "claude-haiku",
+      "prompt_version": "1.0"
+    },
+    {
+      "experiment_name": "exp_09_prompt_v1_1",
+      "description": "Prompt v1.1 \u2014 uncertainty calibration",
+      "chunk_size": 500,
+      "retrieval_method": "hybrid",
+      "reranking": true,
+      "top_k": 5,
+      "model_key": "claude-haiku",
+      "prompt_version": "1.1"
+    },
+    {
+      "experiment_name": "exp_10_prompt_v1_2",
+      "description": "Prompt v1.2 \u2014 with citations",
+      "chunk_size": 500,
+      "retrieval_method": "hybrid",
+      "reranking": true,
+      "top_k": 5,
+      "model_key": "claude-haiku",
+      "prompt_version": "1.2"
+    }
+  ]
+}

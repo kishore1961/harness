@@ -1,0 +1,26 @@
+{
+  "config": {
+    "experiment_name": "exp_05_bm25_only",
+    "description": "BM25-only retrieval",
+    "chunk_size": 500,
+    "retrieval_method": "bm25",
+    "reranking": true,
+    "top_k": 5,
+    "model_key": "claude-haiku",
+    "prompt_version": "1.0"
+  },
+  "deepeval_scores": {
+    "faithfulness": 0.8,
+    "answerrelevancy": 0.92,
+    "contextualprecision": 1.0,
+    "contextualrecall": 1.0
+  },
+  "ragas_scores": {
+    "faithfulness": 0.9,
+    "context_precision": 1.0,
+    "context_recall": 1.0,
+    "answer_correctness": 0.5146
+  },
+  "mlflow_run_id": "8eddffb8ca184dac8f8d3dff207cf514",
+  "duration_seconds": 228.8
+}
